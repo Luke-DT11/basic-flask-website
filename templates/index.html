@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Today's Tasks</h1>
+    {% if tasks|length < 1 %}
+    <h3>There are no tasks. Create one below!</h3>
+    {% else %}
+
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.content}}</td>
+                <td>{{ task.date_created.time().replace(microsecond=0) }} {% if task.date_updated %} (Last Update: {{task.date_updated.time().replace(microsecond=0)}}) {% endif %} </td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+    <form action="/" method="POST" id="submit_form">
+        <input type="text" name="content" id ="content" placeholder="Enter a task">
+        <input type="submit" value="Add" id="submit">
+    </form>
+
+    {% if tasks|length >= 1 %}
+    <div class="clear_container">
+        <div class="clear_sub_cont">
+            <a href="/clear" id="clear">Clear All</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

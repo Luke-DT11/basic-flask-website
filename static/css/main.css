@@ -1,0 +1,126 @@
+* {
+    --dark-gray: #141414;
+    --light-gray: rgb(207, 207, 207);
+    --vlight-gray: rgb(250, 250, 250);
+}
+
+body {
+    margin: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: var(--dark-gray);
+    background-color: var(--vlight-gray);
+}
+
+.content {
+    width: 100%;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 800;
+    font-size: 60px;
+    width: 800px;
+    text-align: center;
+}
+
+h3 {
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 800;
+    font-size: 40px;
+    width: 800px;
+    text-align: center;
+}
+
+table  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    table-layout: auto;
+}
+
+table th {
+    font-size: 28px;
+}
+
+table tr {
+    text-align: center;
+}
+
+table td a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--dark-gray);
+    transition: 0.5s;
+    line-height: 30px;
+
+}
+
+table td a:hover {
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+table td br {
+    height: 10px;
+}
+
+#submit_form {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#content {
+    margin-right: 90px;
+    border-radius: 20px;
+    padding-left: 20px;
+    height: 40px;
+    width: 400px;
+    border: solid 1px var(--light-gray);
+    margin-left: 70px;
+}
+
+#submit {
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    border: none;
+    font-weight: 700;
+    font-size: 24px;
+    background-color: var(--light-gray);
+    transition: 0.5s;
+}
+
+#submit:hover, .clear_sub_cont:hover {
+    cursor: pointer;
+    background-color: #4285F4;
+    transition: 0.5s;
+}
+
+.clear_container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.clear_sub_cont {
+    background-color: var(--light-gray);
+    margin-left: 70px;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clear {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+}
