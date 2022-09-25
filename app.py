@@ -11,6 +11,7 @@ class Todo(db.Model):
     content = db.Column(db.String(200),nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
     date_updated = db.Column(db.DateTime, default=datetime.utcnow)
+    status = db.Column(db.Integer, default=0)
     def __repr__(self):
         return '<Task %r>' % self.id
 
@@ -57,6 +58,26 @@ def update(id):
             return "There was an issue updating your task"
     else:
         return render_template("update.html", task=task)
+
+@app.route("/complete/<int:id>", methods=["GET","POST"])
+def complete(id):
+    task = Todo.query.get_or_404(id)
+    if task.status == 0:
+        try:
+            task.status = 1
+            task.date_updated = datetime.utcnow()
+            db.session.commit()
+            return redirect("/")
+        except:
+            return "There was an issue updating the status your task"
+    else:
+        try:
+            task.status = 0
+            task.date_updated = datetime.utcnow()
+            db.session.commit()
+            return redirect("/")
+        except:
+            return "There was an issue updating the status your task"
 
 @app.route("/clear")
 def clear():

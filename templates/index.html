@@ -11,20 +11,24 @@
     <h3>There are no tasks. Create one below!</h3>
     {% else %}
 
-    <table>
+    <table id ="test">
         <tr>
             <th>Task</th>
+            <th>Status</th>
             <th>Added</th>
             <th>Actions</th>
         </tr>
         {% for task in tasks %}
-            <tr>
-                <td>{{ task.content}}</td>
+            <tr id = "task_{{task.id}}" >
+                <td>{{ task.content }}</td>
+                <td>{{ task.status }}</td>
                 <td>{{ task.date_created.time().replace(microsecond=0) }} {% if task.date_updated %} (Last Update: {{task.date_updated.time().replace(microsecond=0)}}) {% endif %} </td>
                 <td>
                     <a href="/delete/{{task.id}}">Delete</a>
                     <br>
                     <a href="/update/{{task.id}}">Update</a>
+                    <br>
+                    <a href="/complete/{{task.id}}">Complete</a>
                 </td>
             </tr>
         {% endfor %}
