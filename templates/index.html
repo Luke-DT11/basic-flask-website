@@ -11,7 +11,7 @@
     <h3>There are no tasks. Create one below!</h3>
     {% else %}
 
-    <table id ="test">
+    <table>
         <tr>
             <th>Task</th>
             <th>Status</th>
@@ -24,11 +24,11 @@
                 <td>{{ task.status }}</td>
                 <td>{{ task.date_created.time().replace(microsecond=0) }} {% if task.date_updated %} (Last Update: {{task.date_updated.time().replace(microsecond=0)}}) {% endif %} </td>
                 <td>
-                    <a href="/delete/{{task.id}}">Delete</a>
+                    <a id="delete" href="/delete/{{task.id}}">Delete</a>
                     <br>
                     <a href="/update/{{task.id}}">Update</a>
                     <br>
-                    <a href="/complete/{{task.id}}">Complete</a>
+                    <a id="complete"href="/complete/{{task.id}}">Complete</a>
                 </td>
             </tr>
         {% endfor %}
@@ -43,7 +43,7 @@
     {% if tasks|length >= 1 %}
     <div class="clear_container">
         <div class="clear_sub_cont">
-            <a href="/clear" id="clear">Clear All</a>
+            <a href="/clear" id="clear" onclick="return confirm('This will delete all tasks, are you sure?');">Clear All</a>
         </div>
     </div>
     {% endif %}
