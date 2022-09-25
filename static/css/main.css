@@ -38,6 +38,7 @@ table  {
     margin-right: auto;
     width: 800px;
     table-layout: auto;
+    border-collapse: collapse;
 }
 
 table th {
@@ -46,6 +47,15 @@ table th {
 
 table tr {
     text-align: center;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+table tr:first-child {
+    border-bottom: 2px solid var(--dark-gray);
+}
+
+table tr:last-child {
+    border: none;
 }
 
 table td a {
